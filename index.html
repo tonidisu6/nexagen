@@ -27,6 +27,7 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
+
     /* ── NAV ── */
     nav {
       position: fixed;
@@ -100,6 +101,7 @@
       font-family: 'Inter', sans-serif;
     }
     .btn-outline:hover { background: var(--black); color: var(--cream); }
+
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
@@ -135,7 +137,7 @@
     }
     .hero-headline {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(48px, 7vw, 96px);
+      font-size: clamp(40px, 7vw, 96px);
       line-height: 1.05;
       letter-spacing: -0.02em;
       max-width: 900px;
@@ -161,6 +163,7 @@
       margin-top: 14px;
       animation: fadeUp 0.6s 0.35s ease both;
     }
+
     /* ── TICKER ── */
     .ticker-wrap {
       border-top: 1px solid var(--border);
@@ -191,6 +194,7 @@
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
     }
+
     /* ── SECTIONS ── */
     section { padding: 120px 48px; }
     .section-label {
@@ -203,7 +207,7 @@
     }
     .section-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(32px, 4vw, 52px);
+      font-size: clamp(28px, 4vw, 52px);
       line-height: 1.1;
       letter-spacing: -0.02em;
       max-width: 640px;
@@ -215,6 +219,7 @@
       max-width: 560px;
       line-height: 1.7;
     }
+
     /* ── PROBLEM ── */
     .problem {
       display: grid;
@@ -240,7 +245,7 @@
     .stat-card:last-child { border-radius: 0 0 20px 0; }
     .stat-number {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 48px;
+      font-size: clamp(32px, 5vw, 48px);
       line-height: 1;
       margin-bottom: 8px;
     }
@@ -249,6 +254,7 @@
       color: rgba(240,234,224,0.6);
       line-height: 1.5;
     }
+
     /* ── HOW IT WORKS ── */
     .how-inner {
       max-width: 1200px;
@@ -298,6 +304,7 @@
       color: var(--mid);
       line-height: 1.65;
     }
+
     /* ── TEAM ── */
     .team-inner {
       max-width: 1200px;
@@ -346,6 +353,7 @@
       padding-top: 12px;
       border-top: 1px solid var(--border);
     }
+
     /* ── CTA ── */
     .cta-section {
       background: var(--black);
@@ -378,6 +386,7 @@
       transition: opacity 0.2s, transform 0.15s;
     }
     .btn-cream:hover { opacity: 0.85; transform: translateY(-1px); }
+
     /* ── FOOTER ── */
     footer {
       padding: 40px 48px;
@@ -407,6 +416,7 @@
       transition: color 0.2s;
     }
     .footer-link:hover { color: var(--black); }
+
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
@@ -418,23 +428,60 @@
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
     .fade-up.visible { opacity: 1; transform: none; }
-    /* ── RESPONSIVE ── */
+
+    /* ── RESPONSIVE: TABLET ── */
     @media (max-width: 900px) {
       nav { padding: 20px 24px; }
       .nav-link { display: none; }
+      /* Hide nav CTA — hero has one */
+      .nav-right .btn-primary { display: none; }
       section { padding: 80px 24px; }
+      .cta-section { padding: 80px 24px; }
       .problem { grid-template-columns: 1fr; gap: 48px; }
       .steps { grid-template-columns: 1fr; }
+      .step { padding: 36px 28px; }
       .step:first-child { border-radius: 20px 20px 0 0; }
+      .step:nth-child(2) { border-radius: 0; }
       .step:last-child { border-radius: 0 0 20px 20px; }
-      .team-grid { grid-template-columns: 1fr; }
+      .how-header { flex-direction: column; align-items: flex-start; margin-bottom: 40px; }
+      .team-grid { grid-template-columns: 1fr; margin-top: 40px; }
+      .team-card { padding: 32px 28px; }
       .team-card:first-child { border-radius: 20px 20px 0 0; }
+      .team-card:nth-child(2) { border-radius: 0; }
       .team-card:last-child { border-radius: 0 0 20px 20px; }
       footer { flex-direction: column; gap: 24px; text-align: center; }
+      .footer-right { flex-direction: column; gap: 12px; }
+    }
+
+    /* ── RESPONSIVE: MOBILE ── */
+    @media (max-width: 540px) {
+      nav { padding: 16px 20px; }
+      .hero {
+        padding: 110px 20px 64px;
+        min-height: 100svh;
+      }
+      .hero-badge { font-size: 10px; padding: 5px 12px; margin-bottom: 28px; }
+      .hero-sub { margin-bottom: 36px; }
+      /* Platform section: pull back the horizontal margin so it doesn't eat screen */
+      #platform {
+        margin: 0 12px !important;
+        border-radius: 24px !important;
+        padding: 64px 20px !important;
+      }
+      .stat-card { padding: 28px 20px; }
+      .stat-desc { font-size: 12px; }
+      .step { padding: 32px 24px; }
+      .step-title { font-size: 18px; }
+      .team-card { padding: 28px 24px; }
+      .cta-section { padding: 72px 20px; }
+      .cta-section .section-body { font-size: 15px; }
+      footer { padding: 32px 20px; }
+      .btn-cream { font-size: 13px; padding: 12px 24px; }
     }
   </style>
 </head>
 <body>
+
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
@@ -454,6 +501,7 @@
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSfPnYSbLB0yAkp9VEmTySHZUfwO2lmAxV6sVlsd5_taA4u6ag/viewform?usp=publish-editor" target="_blank" class="btn-primary">Fill Out Our Questionnaire</a>
     </div>
   </nav>
+
   <!-- HERO -->
   <section class="hero">
     <h1 class="hero-headline">
@@ -465,6 +513,7 @@
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfPnYSbLB0yAkp9VEmTySHZUfwO2lmAxV6sVlsd5_taA4u6ag/viewform?usp=publish-editor" target="_blank" class="btn-primary" style="animation: fadeUp 0.6s 0.3s ease both;">Fill Out Our Questionnaire</a>
     <p class="hero-note">Early access · Built by women, for women</p>
   </section>
+
   <!-- TICKER -->
   <div class="ticker-wrap">
     <div class="ticker-track">
@@ -486,6 +535,7 @@
       <span class="ticker-item">AI Drug Discovery</span>
     </div>
   </div>
+
   <!-- PROBLEM -->
   <section id="problem">
     <div class="problem">
@@ -518,6 +568,7 @@
       </div>
     </div>
   </section>
+
   <!-- HOW IT WORKS -->
   <section id="platform" style="background: var(--cream-dark); border-radius: 32px; margin: 0 24px;">
     <div class="how-inner">
@@ -565,6 +616,7 @@
       </div>
     </div>
   </section>
+
   <!-- TEAM -->
   <section id="team">
     <div class="team-inner">
@@ -597,12 +649,14 @@
       </p>
     </div>
   </section>
+
   <!-- CTA -->
   <section class="cta-section" id="waitlist">
     <h2 class="section-title fade-up">Be first to access Nexagen.</h2>
     <p class="section-body fade-up">We're onboarding a small group of research teams and biotech founders to shape the platform. If you work in women's health drug discovery, we want to hear from you.</p>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfPnYSbLB0yAkp9VEmTySHZUfwO2lmAxV6sVlsd5_taA4u6ag/viewform?usp=publish-editor" target="_blank" class="btn-cream fade-up">Fill Out Our Questionnaire</a>
   </section>
+
   <!-- FOOTER -->
   <footer>
     <a href="#" class="footer-logo">
@@ -617,9 +671,10 @@
     </a>
     <div class="footer-right">
       <span style="font-size: 13px; color: var(--mid);">© 2026 Nexagen</span>
-      <a href="mailto:hello@nexagen.bio" class="footer-link">asknexagen@gmail.com</a>
+      <a href="mailto:asknexagen@gmail.com" class="footer-link">asknexagen@gmail.com</a>
     </div>
   </footer>
+
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(el => {
